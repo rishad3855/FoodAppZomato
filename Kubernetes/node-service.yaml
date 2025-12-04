@@ -1,16 +1,16 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: node-exporter
+  name: node-exporter          # you can also rename to zomato-metrics
   namespace: my-namespace
 spec:
   selector:
-    name: node-exporter      # must match pod label
+    app: zomato                # match your pods' label
   ports:
     - name: http-metrics
-      protocol: TCP
       port: 9100
-      targetPort: 9100
-  type: ClusterIP            # NodePort not needed for Prometheus inside cluster
-    # NodePort not needed for Prometheus inside cluster
+      targetPort: 9100         # container must listen on 9100
+      protocol: TCP
+  type: ClusterIP
+
 
