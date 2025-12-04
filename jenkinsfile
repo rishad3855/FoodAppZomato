@@ -70,6 +70,7 @@ pipeline {
                    aws eks --region ap-south-1 update-kubeconfig --name zomato-eks
                    kubectl apply -f ./Kubernetes/deployment.yaml
                    kubectl apply -f ./Kubernetes/service.yaml
+                   kubectl apply -f ./Kubernetes/node-service.yaml
                    kubectl get svc zomato -o wide  # Verify NodePort assignment
                   '''
            }
@@ -101,6 +102,7 @@ pipeline {
         }
     }
 }
+
 
 
 
