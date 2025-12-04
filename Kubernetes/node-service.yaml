@@ -11,4 +11,6 @@ spec:
       protocol: TCP
       port: 9100
       targetPort: 9100
-  type: NodePort            # NodePort not needed for Prometheus inside cluster
+  type: ClusterIP            # NodePort not needed for Prometheus inside cluster
+    # NodePort not needed for Prometheus inside cluster
+
