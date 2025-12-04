@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: prometheus
-  namespace: monitoring
+  namespace: my-namespace
 spec:
   type: LoadBalancer        # or NodePort
   selector:
@@ -10,3 +10,4 @@ spec:
   ports:
     - port: 9090
       targetPort: 9090
+
