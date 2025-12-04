@@ -88,13 +88,13 @@ Install below plugins:
 -Eclipse Temurin Installer
 -SonarQube Scanner
 -NodeJS
--OWASP Dependency-Check 5.5.1
--Docker 1.6.2, Docker Commons, Docker Pipeline,
+-OWASP Dependency-Check
+-Docker , Docker Commons, Docker Pipeline,
 Docker API, docker-build-step
 -Pipeline: Stage View,
 -Prometheus metrics
 -Email Extension Template
--pipline-aws setup
+-Pipeline: AWS Steps
 -aws credentials
 -kubernets
 
@@ -726,6 +726,7 @@ Kind Request:
 Once after you have successfully deployed the App, kindly share your experience on LinkedIn by Tagging me and also provide the YouTube link of this project in your post, as it helps others to access the video quickly. 
 ========================================================================================================
 												HAPPY LEARNING
+
 
 
 
