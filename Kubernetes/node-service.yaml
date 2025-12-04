@@ -1,14 +1,31 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: node-exporter
   namespace: my-namespace
+  labels:
+    app: zomato
 spec:
-  type: NodePort       # or NodePort
   selector:
     app: zomato
   ports:
-    - port: 9100
+    - name: http-metrics
+      port: 9100
       targetPort: 9100
-
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: my-app-monitor
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: zomato
+  namespaceSelector:
+    matchNames: ["my-namespace"]
+  endpoints:
+    - port: http-metrics
+      path: /metrics
+      interval: 15s
 
