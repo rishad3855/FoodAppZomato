@@ -73,6 +73,7 @@ pipeline {
                     kubectl apply -n my-namespace -f ./Kubernetes/deployment.yaml
                     kubectl apply -n my-namespace -f ./Kubernetes/service.yaml
                     kubectl apply -n my-namespace -f ./Kubernetes/node-service.yaml
+                    kubectl get svc zomato -o wide
                   '''
                 }
             }
@@ -103,6 +104,7 @@ pipeline {
         }
     }
 }
+
 
 
 
