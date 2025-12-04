@@ -66,7 +66,7 @@ pipeline {
         }
         stage('Deploy to EKS') {
             steps {
-                withAWS(credentials: 'aws-jenkins-creds', region: 'ap-south-1') {
+                withAWS(credentials: 'AWS-CREDS', region: 'ap-south-1') {
                   sh '''
                     aws sts get-caller-identity
                     aws eks --region ap-south-1 update-kubeconfig --name zomato-eks
@@ -103,6 +103,7 @@ pipeline {
         }
     }
 }
+
 
 
 
