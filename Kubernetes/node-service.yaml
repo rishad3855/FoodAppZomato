@@ -5,11 +5,10 @@ metadata:
   namespace: my-namespace
 spec:
   selector:
-      app: node-exporter
+    name: node-exporter      # must match pod label
   ports:
-  - name: node-exporter
-    protocol: TCP
-    port: 9100
-    targetPort: 9100
-  type: NodePort
-
+    - name: http-metrics
+      protocol: TCP
+      port: 9100
+      targetPort: 9100
+  type: NodePort            # NodePort not needed for Prometheus inside cluster
