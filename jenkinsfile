@@ -66,6 +66,7 @@ pipeline {
         }
         stage('Deploy to EKS') {
            steps {
+            withAWS(credentials: 'AWS-CREDS', region: "ap-south-1")
                 sh '''
                    aws eks --region ap-south-1 update-kubeconfig --name zomato-eks
                    kubectl apply -f ./Kubernetes/deployment.yaml
@@ -102,6 +103,7 @@ pipeline {
         }
     }
 }
+
 
 
 
