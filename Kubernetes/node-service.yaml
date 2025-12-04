@@ -1,13 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: prometheus
+  name: node-exporter
   namespace: my-namespace
 spec:
-  type: LoadBalancer        # or NodePort
+  type: NodePort       # or NodePort
   selector:
-    app: prometheus
+    app: zomato
   ports:
-    - port: 9090
-      targetPort: 9090
+    - port: 9100
+      targetPort: 9100
+
 
