@@ -64,11 +64,17 @@ pipeline {
                 }
             }
         }
-        stage ("Deploy to Container") {
-            steps {
-                sh 'docker run -d --name zomato -p 3000:3000 rishad2001/zomato:latest'
-            }
-        }
+        stage('Deploy to EKS') {
+           steps {
+                sh '''
+                   aws eks --region ap-south-1 update-kubeconfig --name zomato-eks
+                   kubectl apply -f ./Kubernetes/deployment.yaml
+                   kubectl apply -f ./Kubernetes/service.yaml
+                   kubectl get svc zomato -o wide  # Verify NodePort assignment
+                  '''
+           }
+       }
+
     }
     post {
     always {
@@ -95,6 +101,7 @@ pipeline {
         }
     }
 }
+
 
 
 
